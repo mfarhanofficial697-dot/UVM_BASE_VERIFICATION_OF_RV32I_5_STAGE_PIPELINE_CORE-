@@ -117,7 +117,8 @@ class Coverage_collector extends uvm_subscriber #(RISCV_seq_item);
   endgroup : instructions_cover
 
 // The constructor (new) creates the covergroup, while the build, connect, and run phases simply print debug messages. 
-  
+// The most important function is write(), which is automatically called whenever the monitor sends a transaction; it copies the instruction into item and triggers instructions_cover.sample(), thereby updating coverage. 
+
   // Constructor: create the covergroup
   function new(string name = "Coverage_collector", uvm_component parent);
     super.new(name,parent);
