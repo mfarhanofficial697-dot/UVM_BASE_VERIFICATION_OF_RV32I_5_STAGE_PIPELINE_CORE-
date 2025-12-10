@@ -116,6 +116,8 @@ class Coverage_collector extends uvm_subscriber #(RISCV_seq_item);
         }
   endgroup : instructions_cover
 
+// The constructor (new) creates the covergroup, while the build, connect, and run phases simply print debug messages. 
+  
   // Constructor: create the covergroup
   function new(string name = "Coverage_collector", uvm_component parent);
     super.new(name,parent);
